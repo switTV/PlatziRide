@@ -27,6 +27,9 @@ module.exports = {
     },
     wayPoints: {
       type: 'json',
+    },
+    imgBackground: {
+      type: 'string'
     }
 
 
