@@ -1,5 +1,7 @@
 <script lang="ts">
     export let ride
+
+    import {delRide} from "../context/store"
 </script>
 
 <style>
@@ -34,12 +36,7 @@
         background-size: cover;
         
         border-radius: 10px 10px 0px 0px;
-        transition: 2s;
-    }
-    
-    .Card .Card_img:hover{
-        background-size: 120%;
-
+        transition: background-size 0.5s ease;
     }
 
     .Card .Card_text h2 {
@@ -83,7 +80,7 @@
 
         <div class="Card_buttons">
             <button>Edit</button>
-            <button>Delete</button>
+            <button on:click={() => (delRide(ride.id))}>Delete</button>
         </div>
     </div>
 </div>

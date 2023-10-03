@@ -1,6 +1,8 @@
 <script lang="ts">
     export let data:any[]
     import Card from "$lib/components/Card.svelte";
+
+    import {postRide} from "../lib/context/store"
 </script>
 
 <style>
