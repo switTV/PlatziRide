@@ -1,7 +1,7 @@
 <script lang="ts">
     export let ride
 
-    import {delRide} from "../context/store"
+    import {delRide, editRide} from "../context/store"
 </script>
 
 <style>
@@ -65,6 +65,20 @@
 
     .Card_buttons {
         margin-top: 10px;
+        border: none;
+    }
+
+    .Card_buttons button{
+        border: none;
+        width: 100px;
+        height: 30px;
+        border-radius: 5px;
+    }
+
+    @media (min-width: 320px) {
+        .Card {
+            margin-left: 10px;
+        }
     }
 </style>
 
@@ -79,8 +93,8 @@
         <p>Comienza el {ride.start}</p>
 
         <div class="Card_buttons">
-            <button>Edit</button>
-            <button on:click={() => (delRide(ride.id))}>Delete</button>
+            <button style="background-color: #53acff;" on:click={() => (editRide(ride.id))}>Edit</button>
+            <button style="background-color: #F45B69;" on:click={() => (delRide(ride.id))}>Delete</button>
         </div>
     </div>
 </div>

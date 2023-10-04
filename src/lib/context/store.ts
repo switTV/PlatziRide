@@ -10,6 +10,7 @@ export async function postRide(title: string, start: string, imgBackground: stri
             imgBackground: imgBackground
         })
     });
+    window.location.href = "http://localhost:5173/"
 
     return res.json();
 }
@@ -25,6 +26,21 @@ export async function delRide(id:number) {
         }),
     });
     window.location.reload();
+
+    return res.json();
+}
+
+export async function editRide(id:number) {
+    const res = await fetch(`http://localhost:1337/ride/post_ride/${id}`, {
+        method: "PUT",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            id: id
+        }),
+    });
+    // window.location.href=`http://localhost:5173/post_ride/${id}`
 
     return res.json();
 }
