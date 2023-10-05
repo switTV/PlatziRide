@@ -15,8 +15,9 @@
         border-radius: 50%;
 
         position: fixed;
-        right: calc(50%);
+        right: calc(50% - 30px);
         bottom: calc(0px + 20px);
+        cursor: pointer;
     }
 
     a {

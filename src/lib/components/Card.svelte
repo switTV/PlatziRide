@@ -1,7 +1,9 @@
 <script lang="ts">
+    import { goto } from "$app/navigation";
+
     export let ride
 
-    import {delRide, editRide} from "../context/store"
+    import {delRide} from "../context/store"
 </script>
 
 <style>
@@ -73,6 +75,7 @@
         width: 100px;
         height: 30px;
         border-radius: 5px;
+        cursor: pointer;
     }
 
     @media (min-width: 320px) {
@@ -93,7 +96,7 @@
         <p>Comienza el {ride.start}</p>
 
         <div class="Card_buttons">
-            <button style="background-color: #53acff;" on:click={() => (editRide(ride.id))}>Edit</button>
+            <button style="background-color: #53acff;" on:click={() => (goto(`http://localhost:5173/edit_ride/${ride.id}`))}>Edit</button>
             <button style="background-color: #F45B69;" on:click={() => (delRide(ride.id))}>Delete</button>
         </div>
     </div>
