@@ -17,7 +17,7 @@ export async function postRide(title: string, start: string, imgBackground: stri
 
 export async function editRide(newRide: object, id: string) {
     const res = await fetch(`http://localhost:1337/ride/${id}`, {
-        method: "PUT",
+        method: "PATCH",
         headers: {
             'Content-Type': 'application/json'
         },
@@ -36,6 +36,23 @@ export async function delRide(id:number) {
         },
         body: JSON.stringify({
             id: id
+        }),
+    });
+    window.location.reload();
+
+    return res.json();
+}
+
+export async function getRide(title: string, start: string, imgBackground: string, id:number) {
+    const res = await fetch(`http://localhost:1337/ride/${id}`, {
+        method: "GET",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            title: title,
+            start: start,
+            imgBackground: imgBackground
         }),
     });
     window.location.reload();

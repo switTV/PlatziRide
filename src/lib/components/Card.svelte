@@ -1,9 +1,9 @@
 <script lang="ts">
     import { goto } from "$app/navigation";
 
-    export let ride
+    export let ride:any
 
-    import {delRide} from "../context/store"
+    import {delRide, getRide} from "../context/store"
 </script>
 
 <style>
@@ -88,16 +88,16 @@
 <!-- markup (zero or more items) goes here -->
 
 <div class="Card">
-    <div class="Card_img" style="background-image: url({ride.imgBackground});">
+    <div class="Card_img" on:click={() => (goto(`http://localhost:5173/get_ride/${ride.id}`))} style="background-image: url({ride.imgBackground});">
 
     </div>
     <div class="Card_text">
-        <h2>{ride.title}</h2>
+        <h2 on:click={() => (goto(`http://localhost:5173/get_ride/${ride.id}`))}>{ride.title}</h2>
         <p>Comienza el {ride.start}</p>
 
         <div class="Card_buttons">
             <button style="background-color: #53acff;" on:click={() => (goto(`http://localhost:5173/edit_ride/${ride.id}`))}>Edit</button>
-            <button style="background-color: #F45B69;" on:click={() => (delRide(ride.id))}>Delete</button>
+            <button style="background-color: #F45B69; z-index: 999" on:click={() => (delRide(ride.id))}>Delete</button>
         </div>
     </div>
 </div>
