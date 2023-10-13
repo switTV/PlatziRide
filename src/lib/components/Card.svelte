@@ -1,9 +1,12 @@
 <script lang="ts">
     import { goto } from "$app/navigation";
+    import {delRide} from "../context/store"
 
     export let ride:any
 
-    import {delRide, getRide} from "../context/store"
+    function goToRides() {
+        goto(`http://localhost:5173/get_ride/${ride.id}`)
+    }
 </script>
 
 <style>
@@ -57,6 +60,7 @@
     .Card .Card_text {
         width: 100%;
         grid-area: Card_text;
+        cursor: pointer;
         display: flex;
         justify-content: center;
         flex-direction: column;
@@ -88,12 +92,12 @@
 <!-- markup (zero or more items) goes here -->
 
 <div class="Card">
-    <div class="Card_img" on:click={() => (goto(`http://localhost:5173/get_ride/${ride.id}`))} style="background-image: url({ride.imgBackground});">
+    <div class="Card_img" on:click={goToRides} style="background-image: url({ride.imgBackground});">
 
     </div>
     <div class="Card_text">
-        <h2 on:click={() => (goto(`http://localhost:5173/get_ride/${ride.id}`))}>{ride.title}</h2>
-        <p>Comienza el {ride.start}</p>
+        <h2 on:click={goToRides}>{ride.title}</h2>
+        <p on:click={goToRides}>Comienza el {ride.start}</p>
 
         <div class="Card_buttons">
             <button style="background-color: #53acff;" on:click={() => (goto(`http://localhost:5173/edit_ride/${ride.id}`))}>Edit</button>

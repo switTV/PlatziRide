@@ -21,6 +21,7 @@ module.exports = {
     start: {
       type: 'string',
       required: true,
+      // defaultsTo: '1/1/1'
     },
     end: {
       type: 'string',

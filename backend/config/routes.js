@@ -9,6 +9,8 @@
  */
 
 module.exports.routes = {
-
+  //rutas de usuario
+  'POST /user/login': 'UserController.login',
+  'POST /user/signup': 'UserController.signup'
 
 };

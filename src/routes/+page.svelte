@@ -4,6 +4,10 @@
     import ButtonAdd from "$lib/components/ButtonAdd.svelte";
 </script>
 
+<svelte:head>
+    <title>PlatziRide</title>
+</svelte:head>
+
 <style>
     :global(*){
         margin: 0;

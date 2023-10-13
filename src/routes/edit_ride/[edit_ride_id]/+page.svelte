@@ -16,6 +16,10 @@
     }
 </script>
 
+<svelte:head>
+    <title>{`Editar ${searchedRide.title}`}</title>
+</svelte:head>
+
 <style>
     .container_form {
         width: 100vw;

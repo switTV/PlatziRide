@@ -49,7 +49,7 @@
     <NavRides></NavRides>
 
     <div class="HeaderGetRide_text">
-        <h1 data-aos="fade-up" data-aos-duration="500">{title}</h1>
-        <p data-aos="fade-up" data-aos-duration="500">{start}</p>
+        <h1 data-aos="fade-up" data-aos-duration="200">{title}</h1>
+        <p data-aos="fade-up" data-aos-duration="400">{start}</p>
     </div>
 </div>
