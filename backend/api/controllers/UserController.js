@@ -60,7 +60,7 @@ module.exports = {
         password: Joi.string()
           .min(6)
           .required()
-          .pattern(new RegExp('^[a-zA-Z0-9_]{3,30}$')),
+          .pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')),
 
         repeatPassword: Joi.ref('password'),
 
@@ -69,7 +69,7 @@ module.exports = {
           .required()
       });
 
-      const {email, password} = await schema.validateAsync(req.allParams())
+      const {email, password} = await schema.validateAsync(req.allParams());
 
       const user = await User.findOne({email});
 
@@ -77,8 +77,9 @@ module.exports = {
         return res.notFound({err: 'User not found'});
       }
 
-      const comparedPassword = await Bcrypt.compare(password, user.password)
-      return (comparedPassword) ? res.ok(user) : res.badRequest({err: 'Unauthorized'})
+      const comparedPassword = await Bcrypt.compare(password, user.password);
+      const token = AuthenticationService.JWTIssuer({user: user.id}, '1 day')
+      return (comparedPassword) ? res.ok({token}) : res.badRequest({err: 'Unauthorized'});
 
     } catch (err) {
       if(err.name === 'ValidationError'){

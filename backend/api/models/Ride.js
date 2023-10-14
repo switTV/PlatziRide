@@ -31,7 +31,7 @@ module.exports = {
     },
     imgBackground: {
       type: 'string'
-    }
+    },
 
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
@@ -43,6 +43,9 @@ module.exports = {
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
 
+    user: {
+      model: 'User'
+    }
   },
 
 };
